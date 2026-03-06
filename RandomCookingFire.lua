@@ -21,8 +21,7 @@ local rcToys = {
 -- Unless you want to, I'm not your supervisor.
 
 local rcfList, macroIcon, macroToyName, macroTimer, waitTimer, pendingMacroUpdate
-local rcfCheckButtons, wait, lastRnd, loginMsg = {}, false, 0, "r21"
-local playerClass = select(3,UnitClass("player"))
+local rcfCheckButtons, wait, lastRnd = {}, false, 0
 local addon, RCF = ...
 local L = RCF.Localisation
 
@@ -38,7 +37,6 @@ local rcfDivider = rcfOptionsScroll:CreateLine()
 local rcfScrollChild = CreateFrame("Frame")
 local rcfSelectAll = CreateFrame("Button", nil, rcfOptionsScroll, "UIPanelButtonTemplate")
 local rcfDeselectAll = CreateFrame("Button", nil, rcfOptionsScroll, "UIPanelButtonTemplate")
-local rcfOverride = CreateFrame("CheckButton", nil, rcfOptionsScroll, "UICheckButtonTemplate")
 local rcfListener = CreateFrame("Frame")
 local rcfBtn = CreateFrame("Button", "rcfB", nil, "SecureActionButtonTemplate")
 local rcfDropdown = CreateFrame("DropdownButton", nil, rcfOptionsPanel, "WowStyle1DropdownTemplate")
@@ -327,17 +325,6 @@ rcfDeselectAll:SetScript("OnClick", function(self)
 		v:SetChecked(false)
 	end
 end)
-
--- Macro override dropdown
-rcfDropdown:SetPoint("TOPRIGHT", rcfOverride:GetParent(), "BOTTOMRIGHT", -20, -35)
-rcfDropdown:SetWidth(200)
-rcfDropdown:SetDefaultText(L["RANDOM"])
-rcfDropdown.Texture = rcfDropdown:CreateTexture(nil, "OVERLAY")
-rcfDropdown.Texture:SetSize(24, 24)
-rcfDropdown.Texture:SetPoint("LEFT", rcfDropdown, "RIGHT", 5, 0)
-rcfDropdown.Extratext = rcfDropdown:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-rcfDropdown.Extratext:SetText(L["OPT_MACRO_ICON"])
-rcfDropdown.Extratext:SetPoint("BOTTOMLEFT", rcfDropdown, "TOPLEFT", 0, 5)
 
 -- Custom macro name box
 rcfMacroName:SetPoint("TOPLEFT", rcfDropdown, "BOTTOMLEFT", 25, -20)
