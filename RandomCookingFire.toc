@@ -1,0 +1,11 @@
+## Interface: 120001
+## Title: Random Cooking Fire
+## Author: Jamien
+## Version: r2
+## Notes: Uses a random cooking fire toy
+## SavedVariables: rcfOptions
+## Category-enUS: Inventory
+## IconTexture: Interface\Icons\spell_fire_fire
+
+Localisation.lua
+RandomCookingFire.lua
